@@ -9,5 +9,4 @@ requests
 PyAudio
 groq
 streamlit
-gTTS
-
+gTTS 
