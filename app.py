@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import openai
 import os
-import pyttsx3
+from gtts import gTTS
 import speech_recognition as sr
 from dotenv import load_dotenv
 import requests
@@ -27,10 +27,10 @@ CORS(app)
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 # Initialize text-to-speech engine
-engine = pyttsx3.init()
+engine = gTTS.init()
 
 def speak_text(text):
-    engine = pyttsx3.init()
+    engine = gTTS.init()
     with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_file:
         temp_filename = temp_file.name
     engine.save_to_file(text, temp_filename)
