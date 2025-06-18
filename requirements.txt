@@ -6,6 +6,6 @@ SpeechRecognition==3.8.1
 flask-cors==3.0.10
 werkzeug==2.0.3
 requests
-PyAudio @ https://download.lfd.uci.edu/pythonlibs/archived/PyAudio-0.2.11-cp310-cp310-win_amd64.whl
+PyAudio
 groq
 streamlit 
