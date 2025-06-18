@@ -28,7 +28,7 @@ CORS(app)
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 # Initialize text-to-speech engine
-engine = pyttsx3.init()
+
 
 def speak_text(text):
     tts = gTTS(text)
