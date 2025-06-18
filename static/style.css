@@ -1,0 +1,41 @@
+/* Custom styles */
+.prose {
+    max-width: 65ch;
+    color: #374151;
+}
+
+.prose h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.prose ul {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.prose li {
+    margin-bottom: 0.5em;
+}
+
+#response {
+    min-height: 100px;
+    white-space: pre-wrap;
+}
+
+/* Animation for recording indicator */
+.recording {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+} 
