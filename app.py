@@ -57,7 +57,7 @@ def get_rag_context(query, rag_path="static/ragcontext.txt", n=1):
 
 def get_chatgpt_response(question):
     openai_api_key = os.getenv('OPENAI_API_KEY')
-    groq_api_key = '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'
+    groq_api_key = os.getenv('GROQ_API_KEY')
     groq_api_key_1 = os.getenv('GROQ_API_KEY_1')
     rag_context = get_rag_context(question)
     system_prompt = (
