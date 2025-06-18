@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import openai
 import os
-from gtts import gTTS
+import pyttsx3
 import speech_recognition as sr
 from dotenv import load_dotenv
 import requests
@@ -16,6 +16,7 @@ try:
 except ImportError:
     Groq = None
 import difflib
+from gtts import gTTS
 
 # Load environment variables
 load_dotenv()
@@ -27,14 +28,13 @@ CORS(app)
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 # Initialize text-to-speech engine
-engine = gTTS.init()
+engine = pyttsx3.init()
 
 def speak_text(text):
-    engine = gTTS.init()
-    with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_file:
+    tts = gTTS(text)
+    with tempfile.NamedTemporaryFile(suffix='.mp3', delete=False) as temp_file:
         temp_filename = temp_file.name
-    engine.save_to_file(text, temp_filename)
-    engine.runAndWait()
+        tts.save(temp_filename)
     with open(temp_filename, 'rb') as audio_file:
         audio_data = audio_file.read()
     os.unlink(temp_filename)
